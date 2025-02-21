@@ -27,7 +27,7 @@ app.get('/api/tasks/:id', (req, res) => {
 })
 
 const generateId = () => {
-    return String(Math.max(...tasks.map(t=> Number(t.id))) + 1)
+    return tasks.length <= 0 ? "1" : String(Math.max(...tasks.map(t=> Number(t.id))) + 1)
 }
 
 app.post('/api/tasks', (req, res) => {
@@ -42,7 +42,6 @@ app.post('/api/tasks', (req, res) => {
         deadline: body.deadline,
         completed: null
     }
-    console.log(task)
     tasks = tasks.concat(task)
     res.json(task)
 })
