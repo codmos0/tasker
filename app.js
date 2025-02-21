@@ -42,6 +42,7 @@ app.post('/api/tasks', (req, res) => {
         deadline: body.deadline,
         completed: null
     }
+    console.log(task)
     tasks = tasks.concat(task)
     res.json(task)
 })
